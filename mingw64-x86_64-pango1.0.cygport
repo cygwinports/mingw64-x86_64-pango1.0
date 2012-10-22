@@ -1,0 +1,27 @@
+CROSS_HOST="x86_64-w64-mingw32"
+ORIG_PN="pango"
+inherit cross gnome2
+
+NAME="mingw64-x86_64-pango1.0"
+VERSION=1.30.1
+RELEASE=1
+CATEGORY="Devel"
+SUMMARY="GNOME text rendering library for Win64 toolchain"
+DESCRIPTION="This package does NOT contain cygwin binaries.  Instead, it
+contains msvcrt-linked binaries (aka 'mingw').  It is for use with the
+mingw64-x86_64-gcc cross compiler, and installs into the
+/usr/x86_64-pc-mingw32/sys-root/mingw/{lib,include} directories."
+HOMEPAGE="http://www.pango.org/"
+
+DIFF_EXCLUDES="pango-view.1.in"
+
+CYGCONF_ARGS="--enable-explicit-deps --with-included-modules"
+
+src_install() {
+	cd ${B}
+	cyginstall
+	rm -f ${D}${CROSS_BINDIR}/pango-view.exe
+	rm -fr ${D}${CROSS_DATADIR}/man/
+}
+
+KEEP_LA_FILES="none"
