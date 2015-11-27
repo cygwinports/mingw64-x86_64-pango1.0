@@ -3,7 +3,7 @@ ORIG_PN="pango"
 inherit cross gnome2
 
 NAME="mingw64-x86_64-pango1.0"
-VERSION=1.36.8
+VERSION=1.38.1
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="GNOME text rendering library for Win64 toolchain"
@@ -15,7 +15,7 @@ HOMEPAGE="http://www.pango.org/"
 
 DIFF_EXCLUDES="pango-view.1.in"
 
-CYGCONF_ARGS="--enable-explicit-deps --with-included-modules --without-xft"
+CYGCONF_ARGS="--disable-static --without-xft"
 
 src_install() {
 	cd ${B}
