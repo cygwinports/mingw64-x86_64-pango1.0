@@ -3,7 +3,7 @@ ORIG_PN="pango"
 inherit cross gnome2
 
 NAME="mingw64-x86_64-pango1.0"
-VERSION=1.40.5
+VERSION=1.40.6
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="GNOME text rendering library for Win64 toolchain"
